@@ -34,7 +34,7 @@ def test_login_with_wrong_email(client):
     assert 'Sorry, this email cannot be found' in data
 
 
-# Ensure that login with good email redirect to index and display message error
+# ensure that the connection with the correct email address returns to the review page
 def test_login_with_good_email(client):
 
     club = {
