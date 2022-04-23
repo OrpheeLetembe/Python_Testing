@@ -1,23 +1,17 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Summary | GUDLFT Clubs points</title>
-</head>
-<body>
-    <h3>Clubs:</h3>
-    <ul>
-        {% for club in clubs%}
-        <li>
-            Name: {{club['name']}}<br>
-            Points: {{club['points']}}<br>
+{% extends "base.html" %}
 
-        </li>
-        <hr />
-        {% endfor %}
-    </ul>
+	{% block title %}Summary | GUDLFT Clubs{% endblock %}
 
-    <a href="{{ url_for('index') }}">Home</a>
-
-</body>
-</html>
+	{% block content %}
+	  	<h3>Clubs:</h3>
+	   	 	<ul>
+	        	{% for club in clubs%}
+	        		<li>
+	           		 	Name: {{club['name']}}<br>
+	            		Points: {{club['points']}}<br>
+	        		</li>
+	        		<hr>
+	        	{% endfor %}
+	    	</ul>
+		<a href="{{ url_for('index') }}">Registration</a>
+	{% endblock content %}
