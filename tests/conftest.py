@@ -17,54 +17,44 @@ def app():
 def client(app):
     return app.test_client()
 
-"""
-@pytest.fixture()
-def fixture_load_clubs(monkeypatch):
-
-    def clubs_for_test():
-        return [
-            {
-                "name": "club1",
-                "email": "john@simplylift.co",
-                "points": "15"
-            },
-            {
-                "name": "club2",
-                "email": "club3@clubs.com",
-                "points": "5"
-            },
-            {
-                "name": "club3",
-                "email": "club3@clubs.com",
-                "points": "12"
-            }
-        ]
-    monkeypatch.setattr('server.load_clubs', clubs_for_test)
-
-
-"""
-
-
 @pytest.fixture()
 def clubs_for_tests():
-
-    clubs = [
+    server.clubs = [
         {
             "name": "club1",
-            "email": "john@simplylift.co",
+            "email": "club1@clubs.com",
             "points": "15"
         },
         {
             "name": "club2",
-            "email": "club3@clubs.com",
+            "email": "club2@clubs.com",
             "points": "5"
         },
         {
             "name": "club3",
             "email": "club3@clubs.com",
             "points": "12"
-         }
+        }
+    ]
 
+    return server.clubs
+
+
+@pytest.fixture()
+def competition_for_tests():
+    server.competitions = [
+        {
+            "name": "competition1",
+            "date": "2020-03-27 10:00:00",
+            "numberOfPlaces": "30"
+        },
+        {
+            "name": "competition2",
+            "date": "2024-10-22 13:30:00",
+            "numberOfPlaces": "10"
+        }
 
     ]
-    return clubs
+    return server.competitions
+
+
