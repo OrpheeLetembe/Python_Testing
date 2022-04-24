@@ -17,6 +17,7 @@ def app():
 def client(app):
     return app.test_client()
 
+
 @pytest.fixture()
 def clubs_for_tests():
     server.clubs = [

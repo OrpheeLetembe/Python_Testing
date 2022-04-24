@@ -53,8 +53,6 @@ def test_can_reserve_past_competition(client, clubs_for_tests, competition_for_t
     club_test = clubs_for_tests[0]
     competition_test = competition_for_tests[1]
 
-    client.post('/showSummary', data={"email": club_test['email']})
-
     response = client.get(f'/book/{competition_test["name"]}/{club_test["name"]}')
     data = response.data.decode()
     assert response.status_code == 200
@@ -66,10 +64,24 @@ def test_cannot_reserve_past_competition(client, clubs_for_tests, competition_fo
     club_test = clubs_for_tests[0]
     competition_test = competition_for_tests[0]
 
-    client.post('/showSummary', data={"email": club_test['email']})
-
     response = client.get(f'/book/{competition_test["name"]}/{club_test["name"]}')
     data = response.data.decode()
     assert response.status_code == 200
     assert 'Sorry, this competition has already taken place. Please choose another one' in data
 
+
+# ensure that the number of points used is deducted from the club's balance
+def test_update_point(client, clubs_for_tests, competition_for_tests):
+    club_test = clubs_for_tests[1]
+    competition_test = competition_for_tests[1]
+    places = 1
+    points_available = int(club_test["points"]) - places
+    response = client.post('/purchasePlaces', data={"club": club_test["name"],
+                                                    "competition": competition_test["name"],
+                                                    "places": places})
+
+    data = response.data.decode()
+
+    assert response.status_code == 200
+    assert 'Great-booking complete!' in data
+    assert f'Points available: {points_available}' in data
