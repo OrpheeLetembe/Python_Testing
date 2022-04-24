@@ -85,3 +85,18 @@ def test_update_point(client, clubs_for_tests, competition_for_tests):
     assert response.status_code == 200
     assert 'Great-booking complete!' in data
     assert f'Points available: {points_available}' in data
+
+
+# ensure that clubs cannot reserve more than 12 seats
+def test_limite_place(client, clubs_for_tests, competition_for_tests):
+    club_test = clubs_for_tests[1]
+    competition_test = competition_for_tests[1]
+    places = 14
+    response = client.post('/purchasePlaces', data={"club": club_test["name"],
+                                                    "competition": competition_test["name"],
+                                                    "places": places})
+
+    data = response.data.decode()
+
+    assert response.status_code == 200
+    assert 'You can reserve 1 minimum and 12 maximum places' in data
