@@ -3,6 +3,7 @@
 import pytest
 from flask import template_rendered
 
+
 import server
 
 
@@ -57,5 +58,15 @@ def competition_for_tests():
 
     ]
     return server.competitions
+
+
+@pytest.fixture()
+def club_for_functional_test():
+    return {
+
+            "name": "Simply Lift",
+            "email": "john@simplylift.co",
+            "points": "13"
+        }
 
 
