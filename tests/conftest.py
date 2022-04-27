@@ -70,3 +70,13 @@ def club_for_functional_test():
         }
 
 
+@pytest.fixture()
+def club_for_functional_test():
+    return {
+
+            "name": "Simply Lift",
+            "email": "john@simplylift.co",
+            "points": "13"
+        }
+
+
