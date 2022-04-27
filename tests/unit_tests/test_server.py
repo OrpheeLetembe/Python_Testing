@@ -89,7 +89,7 @@ def test_update_point(client, clubs_for_tests, competition_for_tests):
     club_test = clubs_for_tests[1]
     competition_test = competition_for_tests[1]
     places = 1
-    points_available = int(club_test["points"]) - places
+    points_available = int(club_test["points"]) - (places * 3)
     response = client.post('/purchasePlaces', data={"club": club_test["name"],
                                                     "competition": competition_test["name"],
                                                     "places": places})
