@@ -1,7 +1,7 @@
-from flask import render_template
+# from flask import render_template
 
-import server
-from tests.conftest import client
+# import server
+# from tests.conftest import client
 
 
 # Ensure that app was set up correctly

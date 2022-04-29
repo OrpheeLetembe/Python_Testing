@@ -9,7 +9,7 @@ class ProjectServerTest(HttpUser):
     def index(self):
         self.client.get('/')
 
-    @task
+    @task(4)
     def list_clubs_point(self):
         self.client.get('/clubsPoints')
 

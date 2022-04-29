@@ -52,7 +52,7 @@ def book(competition, club):
                 return render_template('welcome.html', club=found_club, competitions=competitions), 400
             else:
                 return render_template('booking.html', club=found_club, competition=found_competition)
-    except:
+    except IndexError:
         flash("Something went wrong-please try again")
         return render_template('welcome.html', club=club, competitions=competitions), 400
 
@@ -87,4 +87,3 @@ def display_clubs_points():
 @app.route('/logout')
 def logout():
     return redirect(url_for('index'))
-
