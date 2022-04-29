@@ -4,7 +4,8 @@
 Cette version devra répondre aux exigences fonctionnelles suivants :
 
 1- Le secrétaire d’un club doit pouvoir se connecte à l'application via son adresse email.
-2-	Le secrétaire identifie une compétition à venir et clique sur celle-ci.
+
+2- Le secrétaire identifie une compétition à venir et clique sur celle-ci.
 -  Il voit le nombre d'inscriptions disponibles et si d'autres peuvent être acceptées ou non.
 - Le secrétaire peut alors utiliser les points accumulés par le club pour réserver des places pour la compétition.
 - Si le club dispose d’assez de points et qu’il reste des places disponible le secrétaire y devrait voir un message de confirmation. 
