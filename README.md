@@ -49,6 +49,6 @@ L'application est alimentée par des fichiers JSON. C'est pour éviter d'avoir u
 
 # Cadre de tests
 -	[Pytest-flask](https://flask.palletsprojects.com/en/2.1.x/testing/): Pour l’exécution des tests unitaires et d’intégration.
--	[Selenium](https://selenium-python.readthedocs.io/installation.html/): Pour l’exécution des tests fonctionnels.
+-	[Selenium](https://www.selenium.dev/documentation/): Pour l’exécution des tests fonctionnels.
 -	[Locust](https://docs.locust.io/en/stable/): Pour mesurer la performance.
 -	[Coverage](https://coverage.readthedocs.io/en/6.3.2/) : Pour mesurer la couverture des tests.
