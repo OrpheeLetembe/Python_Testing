@@ -2,7 +2,8 @@
  Société qui a créé une plateforme numérique pour coordonner les compétitions de force en Amérique du Nord et en Australie, décide de mettre en place une version plus légère de la plateforme actuelle suite à des critiques sur les réseaux sociaux.
 
 Cette version devra répondre aux exigences fonctionnelles suivants :
-1-	Le secrétaire d’un club doit pouvoir se connecte à l'application via son adresse email.
+
+1- Le secrétaire d’un club doit pouvoir se connecte à l'application via son adresse email.
 2-	Le secrétaire identifie une compétition à venir et clique sur celle-ci.
 -  Il voit le nombre d'inscriptions disponibles et si d'autres peuvent être acceptées ou non.
 - Le secrétaire peut alors utiliser les points accumulés par le club pour réserver des places pour la compétition.
