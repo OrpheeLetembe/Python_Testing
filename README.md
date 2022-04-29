@@ -25,16 +25,16 @@ Cette version devra répondre aux exigences fonctionnelles suivants :
 
 3	Créer un environnement virtuel pour le projet avec la commande :
 
--`$ python -m venv env` sous windows 
--`$ python3 -m venv env` sous macos ou linux.
+- `$ python -m venv env` sous windows 
+- `$ python3 -m venv env` sous macos ou linux.
 
 4	Activez l'environnement virtuel avec la commande
 
--`$ env\Scripts\activate` sous windows 
--`$ source env/bin/activate` sous macos ou linux.
+- `$ env\Scripts\activate` sous windows 
+- `$ source env/bin/activate` sous macos ou linux.
 
 5	Installez les dépendances du projet avec la commande `$ pip install -r requirements.txt`
-6	 Démarrer l’application : Flask exige que vous définissiez une variable d'environnement pour le fichier python. Quelle que soit la façon dont vous le faites, vous devez définir le fichier comme étant server.py. Vérifiez ici pour plus de détails 
+6	 Démarrer l’application : Flask exige que vous définissiez une variable d'environnement pour le fichier python. Quelle que soit la façon dont vous le faites, vous devez définir le fichier comme étant server.py. Vérifiez [ici](https://flask.palletsprojects.com/en/1.1.x/quickstart/#a-minimal-application) pour plus de détails 
 
 Les étapes 1 à 5 ne sont requises que pour l'installation initiale. Pour les lancements ultérieurs de l'application, il suffit d'exécuter l’étape 6 à partir du répertoire racine du projet.
 
