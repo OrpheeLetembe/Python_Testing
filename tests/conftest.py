@@ -1,7 +1,6 @@
 
 
 import pytest
-from flask import template_rendered
 
 
 import server
@@ -68,15 +67,3 @@ def club_for_functional_test():
             "email": "john@simplylift.co",
             "points": "13"
         }
-
-
-@pytest.fixture()
-def club_for_functional_test():
-    return {
-
-            "name": "Simply Lift",
-            "email": "john@simplylift.co",
-            "points": "13"
-        }
-
-

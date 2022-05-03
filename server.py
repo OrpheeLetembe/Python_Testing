@@ -61,22 +61,26 @@ def book(competition, club):
 def purchase_places():
     competition = [c for c in competitions if c['name'] == request.form['competition']][0]
     club = [c for c in clubs if c['name'] == request.form['club']][0]
-    places_required = int(request.form['places'])
-    points_required = places_required * 3
-    if places_required > 12 or places_required <= 0:
-        flash('You can reserve 1 minimum and 12 maximum places')
+    try:
+        places_required = int(request.form['places'])
+        points_required = places_required * 3
+        if places_required > 12 or places_required <= 0:
+            flash('You can reserve 1 minimum and 12 maximum places')
+            return render_template('booking.html', club=club, competition=competition), 400
+        elif places_required > int(competition['numberOfPlaces']):
+            flash(f'there are only {competition["numberOfPlaces"]} places left in this competition')
+            return render_template('booking.html', club=club, competition=competition)
+        elif points_required > int(club["points"]):
+            flash("Sorry, you need more points")
+            return render_template('booking.html', club=club, competition=competition)
+        else:
+            competition['numberOfPlaces'] = int(competition['numberOfPlaces'])-places_required
+            club["points"] = int(club["points"]) - points_required
+            flash('Great-booking complete!', f' {competition["name"]} reserved places: {places_required} - ')
+            return render_template('welcome.html', club=club, competitions=competitions)
+    except ValueError:
+        flash('Please enter the number of places to reserve')
         return render_template('booking.html', club=club, competition=competition), 400
-    elif places_required > int(competition['numberOfPlaces']):
-        flash(f'there are only {competition["numberOfPlaces"]} places left in this competition')
-        return render_template('booking.html', club=club, competition=competition)
-    elif points_required > int(club["points"]):
-        flash("Sorry, you need more points")
-        return render_template('booking.html', club=club, competition=competition)
-    else:
-        competition['numberOfPlaces'] = int(competition['numberOfPlaces'])-places_required
-        club["points"] = int(club["points"]) - points_required
-        flash('Great-booking complete!', f' {competition["name"]} reserved places: {places_required} - ')
-        return render_template('welcome.html', club=club, competitions=competitions)
 
 
 @app.route('/clubsPoints')
